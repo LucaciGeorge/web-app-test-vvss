@@ -57,8 +57,16 @@ public class AccountPage extends PageObject {
 
     }
 
+    public void click_new_file() {
+        click_element_by_attribute_value(buttonList, "value", "New file");
+    }
+
     public void check_directory_to_delete(String directory) {
         click_element_by_attribute_value(listOfDirectories, "value", directory);
+    }
+
+    public void check_file_to_delete(String file) {
+        click_element_by_attribute_value(listOfDirectories, "value", file);
     }
 
     public List<String> getContent() {

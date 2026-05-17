@@ -32,6 +32,11 @@ public class AccountPageSteps {
         accountPage.click_new_directory();
     }
 
+    @Step
+    public void newFile() {
+        accountPage.click_new_file();
+    }
+
 
     @Step
     public void should_be_able_to_see_new_directory(String createdDirectory) {
@@ -39,8 +44,18 @@ public class AccountPageSteps {
     }
 
     @Step
+    public void should_be_able_to_see_new_file(String createdFile) {
+        should_be_able_to_see_new_directory(createdFile);
+    }
+
+    @Step
     public void should_not_be_able_to_see_new_directory(String createdDirectory) {
         assertThat(accountPage.getContent(), not(hasItem(containsString(createdDirectory))));
+    }
+
+    @Step
+    public void should_not_be_able_to_see_new_file(String createdFile) {
+        should_not_be_able_to_see_new_directory(createdFile);
     }
 
     @Step
@@ -50,8 +65,17 @@ public class AccountPageSteps {
     }
 
     @Step
+    public void select_file_to_delete(String file) {
+        accountPage.check_file_to_delete(file);
+    }
+
+    @Step
     public void delete_selected_directory() {
         accountPage.deleteDirectory();
     }
 
+    @Step
+    public void delete_selected_file() {
+        accountPage.deleteDirectory();
+    }
 }

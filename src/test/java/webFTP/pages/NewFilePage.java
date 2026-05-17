@@ -7,25 +7,37 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 import java.util.stream.Collectors;
- 
-public class DeleteDirectoryPage extends PageObject {
 
-    @FindBy(id="CopyDeleteMoveForm")
-    private WebElementFacade content;
+public class NewFilePage extends PageObject {
+    @FindBy(name="entry")
+    private WebElementFacade fileName;
 
-    @FindBy(xpath="//*[@id=\"CopyMoveDeleteForm\"]/a[2]/img")
-    private WebElementFacade deleteButton;
+    @FindBy(name="text")
+    private WebElementFacade textArea;
 
-    @FindBy(xpath="//*[@id=\"CopyMoveDeleteForm\"]/a[1]/img")
+    @FindBy(xpath="//*[@id=\"EditForm\"]/table/tbody/tr[1]/td[1]/a[2]/img")
+    private WebElementFacade saveButton;
+
+    @FindBy(xpath="//*[@id=\"EditForm\"]/table/tbody/tr[1]/td[1]/a[1]/img")
     private WebElementFacade backButtonBtn;
 
-    public void click_delete_directory() {
-        deleteButton.click();
+    public void enter_file_name(String file) {
+        fileName.type(file);
+    }
+
+    public void enter_file_content(String content) {
+        textArea.clear();
+        textArea.type(content);
+    }
+
+    public void click_save_file() {
+        saveButton.click();
     }
 
     public void back() {
         backButtonBtn.click();
     }
+
 
     public List<String> getContent() {
         WebElementFacade definitionList = find(By.tagName("div"));
@@ -33,5 +45,4 @@ public class DeleteDirectoryPage extends PageObject {
                 .map( element -> element.getText() )
                 .collect(Collectors.toList());
     }
-
 }

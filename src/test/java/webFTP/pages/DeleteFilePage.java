@@ -7,8 +7,8 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 import java.util.stream.Collectors;
- 
-public class DeleteDirectoryPage extends PageObject {
+
+public class DeleteFilePage extends PageObject {
 
     @FindBy(id="CopyDeleteMoveForm")
     private WebElementFacade content;
@@ -19,7 +19,7 @@ public class DeleteDirectoryPage extends PageObject {
     @FindBy(xpath="//*[@id=\"CopyMoveDeleteForm\"]/a[1]/img")
     private WebElementFacade backButtonBtn;
 
-    public void click_delete_directory() {
+    public void click_delete_file() {
         deleteButton.click();
     }
 
