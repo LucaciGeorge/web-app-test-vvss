@@ -1,0 +1,3 @@
+server,userName,password,fileName,content,logoutMessage
+"localhost","vvta1","vvta1","assignment_valid_1.txt","valid content 1","You have logged out from the FTP server."
+"localhost","vvta2","vvta2","assignment_valid_2.txt","valid content 2","You have logged out from the FTP server."

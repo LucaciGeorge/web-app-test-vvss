@@ -21,6 +21,9 @@ public class NewFilePage extends PageObject {
     @FindBy(xpath="//*[@id=\"EditForm\"]/table/tbody/tr[1]/td[1]/a[1]/img")
     private WebElementFacade backButtonBtn;
 
+    @FindBy(css = "p.error-box")
+    private WebElementFacade errorBox;
+
     public void enter_file_name(String file) {
         fileName.type(file);
     }
@@ -36,6 +39,14 @@ public class NewFilePage extends PageObject {
 
     public void back() {
         backButtonBtn.click();
+    }
+
+    public boolean is_save_button_visible() {
+        return saveButton.isVisible();
+    }
+
+    public String get_error_message() {
+        return errorBox.getText();
     }
 
 

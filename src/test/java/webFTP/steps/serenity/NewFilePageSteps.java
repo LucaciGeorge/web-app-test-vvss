@@ -2,6 +2,9 @@ package webFTP.steps.serenity;
 
 import net.thucydides.core.annotations.Step;
 import webFTP.pages.NewFilePage;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.junit.Assert.assertTrue;
 
 public class NewFilePageSteps {
 
@@ -33,5 +36,15 @@ public class NewFilePageSteps {
         enter_file_content(content);
         save_file();
         back();
+    }
+
+    @Step
+    public void should_stay_on_new_file_page() {
+        assertTrue(newFilePage.is_save_button_visible());
+    }
+
+    @Step
+    public void should_see_error_message(String expectedMessage) {
+        assertThat(newFilePage.get_error_message(), containsString(expectedMessage));
     }
 }
