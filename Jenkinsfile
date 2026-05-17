@@ -18,7 +18,7 @@ pipeline {
 
         stage('Run Lab05 tests') {
             steps {
-                sh 'mvn -B -Dwebdriver.driver=htmlunit clean verify serenity:aggregate'
+                sh 'mvn -B -Dwebdriver.driver=chrome -Dheadless.mode=true -Dwebdriver.chrome.driver=/usr/bin/chromedriver -Dwebdriver.chrome.binary=/usr/bin/chromium -Dchrome.switches="--headless,--no-sandbox,--disable-dev-shm-usage,--window-size=1920,1080" clean verify serenity:aggregate'
             }
         }
     }
